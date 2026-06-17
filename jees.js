@@ -3,13 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     history.scrollRestoration = "manual";
     window.scrollTo(0, 0);
 
-    document.body.classList.add("lock-scroll");
-
     const viewBtn = document.getElementById("viewBtn");
 
     viewBtn.addEventListener("click", function () {
-
-        document.body.classList.remove("lock-scroll");
 
         document.getElementById("About").scrollIntoView({
             behavior: "smooth"
@@ -43,3 +39,27 @@ document.addEventListener("DOMContentLoaded", function () {
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 };
+
+const toggleBtn = document.getElementById("theme-toggle");
+
+if (toggleBtn) {
+
+    if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+        toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
+    toggleBtn.addEventListener("click", function () {
+
+        document.body.classList.toggle("light-mode");
+
+        if (document.body.classList.contains("light-mode")) {
+            localStorage.setItem("theme", "light");
+            toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            localStorage.setItem("theme", "dark");
+            toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+
+    });
+}
