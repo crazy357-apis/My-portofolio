@@ -5,21 +5,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const viewBtn = document.getElementById("viewBtn");
 
-    viewBtn.addEventListener("click", function () {
-
-        document.getElementById("About").scrollIntoView({
-            behavior: "smooth"
+    if (viewBtn) {
+        viewBtn.addEventListener("click", function () {
+            document.getElementById("About")?.scrollIntoView({
+                behavior: "smooth"
+            });
         });
-    });
+    }
 
     document.querySelectorAll(".navbar a").forEach(link => {
-
         link.addEventListener("click", function (e) {
 
             const targetId = this.getAttribute("href");
 
-            if (targetId.startsWith("#")) {
-
+            if (targetId && targetId.startsWith("#")) {
                 e.preventDefault();
 
                 const target = document.querySelector(targetId);
@@ -31,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         });
-
     });
 
 });
@@ -47,6 +45,9 @@ if (toggleBtn) {
     if (localStorage.getItem("theme") === "light") {
         document.body.classList.add("light-mode");
         toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        document.body.classList.remove("light-mode");
+        toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
     }
 
     toggleBtn.addEventListener("click", function () {

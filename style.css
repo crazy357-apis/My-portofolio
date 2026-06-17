@@ -10,14 +10,37 @@ body{
     font-family: 'Ubuntu', sans-serif;
 }
 
+.sosial-icon{
+    display: flex;
+    gap: 20px;
+}
+
 /* Navbar */
 .nav-link.active{
     color: var(--accentColor) !important;
     font-weight: 800;
 }
 
+body.light-mode .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280%2C%200%2C%200%2C%200.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+body.light-mode .navbar-toggler {
+    border-color: transparent(0, 0, 0, 0.4);
+}
+
 .color-accent{
     color: var(--accentColor);
+}
+
+#theme-toggle {
+    position: absolute;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
 }
 /* End Navbar */
 
@@ -262,8 +285,8 @@ body.light-mode h4{
 }
 
 body.light-mode .section-title{
-    color: #000;
-    border-bottom-color: #000;
+    color: #000 !important;
+    border-bottom-color: #000 !important;
 }
 
 body.light-mode #Skill{
@@ -301,4 +324,21 @@ body.light-mode .nav-link{
 
 body.light-mode .nav-link.active{
     color: var(--accentColor) !important;
+}
+
+.sosial-icon a {
+    color: #6c7dff;
+    transition: 0.3s;
+}
+
+.sosial-icon a:hover {
+    color: white;
+}
+
+body.light-mode .sosial-icon a {
+    color: #000;
+}
+
+body.light-mode .sosial-icon a:hover {
+    color: #6c7dff;
 }
